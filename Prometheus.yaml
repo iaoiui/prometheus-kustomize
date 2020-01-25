@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: example
+  labels:
+    prometheus: k8s
+spec:
+  replicas: 2
+  serviceAccountName: prometheus-k8s
+  securityContext: {}
+  serviceMonitorSelector: 
+    matchLabels:
+            k8s-app: prometheus
+  ruleSelector: {}
+  alerting:
+    alertmanagers:
+      - namespace: nagamine-monitoring
+        name: alertmanager-main
+        port: web
+
