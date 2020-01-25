@@ -20,3 +20,5 @@ EOF
 
 kustomize build > main.yaml
 kubectl apply -f main.yaml
+
+watch -d kubectl get all -n $NS

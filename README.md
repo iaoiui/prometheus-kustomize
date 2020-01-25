@@ -6,5 +6,4 @@ application monnitoring sample using prometheus operator with kustomize
 
 ```
 sh init.sh
-kubectl get all
 ```
